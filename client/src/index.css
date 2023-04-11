@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.range-slider {
+	position: relative;
+	width: 80vmin;
+	height: 20vmin;
+}
+
+.range-slider_input {
+	width: 100%;
+	position: absolute;
+	top: 50%;
+	z-index: 3;
+	transform: translateY(-50%);
+	-webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  opacity: 0;
+	margin: 0;
+}
+
+.range-slider_input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+	border-radius: 50%;
+	opacity: 0;
+}
+
+.range-slider_input::-moz-range-thumb {
+  width: 14vmin;
+  height: 14vmin;
+  cursor: pointer;
+	border-radius: 50%;
+	opacity: 0;
+}
+
+.range-slider_thumb {
+	width: 14vmin;
+	height: 14vmin;
+	border: 0.6vmin solid #303030;
+	border-radius: 50%;
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	background-color: #f4f4f4;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: 700;
+	font-size: 4vmin;
+	color: #303030;
+	z-index: 2;
+}
+
+.range-slider_line {
+	height: 0.5vmin;
+	width: 100%;
+	background-color: #e1e1e1;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 0;
+	position: absolute;
+	z-index: 1;
+}
+
+.range-slider_line-fill {
+	position: absolute;
+	height: 0.5vmin;
+	width: 0;
+	background-color: #303030;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 12px;
+    width: 12px;
+    background: linear-gradient(to right, #D54F87, #EA7457);
+    border-radius: 50%;
+    box-shadow: 0 0 5px 0 rgba(255,255,255,1);
+    cursor: pointer;
+    position: relative;
+  }
+
+.ball {
+	width: 18px;
+	height: 18px;
+	background-color: #D9BA66;
+	border-radius: 50%;
+	box-shadow: 0 0 5px 0 rgba(255,255,255,1);
+	offset-path: path('M6.8575 222C26.8575 222 -77.4177 222 124.963 222C327.343 222 448.877 149.454 518 1');
+	offset-distance: 0%;
+}
+
+.path {
+	stroke-dasharray: 690;
+	stroke-dashoffset: 690;
+  }
+
+  /* 
+  
+  1x speed = 12s
+  2x speed = 10s
+  3x speed = 8s
+  4x speed = 6s
+  5x speed = 4s
+
+  */
+  .start-anim-path-1 {
+	animation: path-anim 11s linear forwards; /* 1.1 times larger than ball speed */
+  }
+  .start-anim-ball-1 {
+	animation: ball-anim 10s linear forwards;
+  }
+  .start-anim-path-2 {
+	animation: path-anim 8.8s linear forwards; /* 1.1 times larger than ball speed */
+  }
+  .start-anim-ball-2 {
+	animation: ball-anim 8s linear forwards;
+  }
+  .start-anim-path-3 {
+	animation: path-anim 6.6s linear forwards; /* 1.1 times larger than ball speed */
+  }
+  .start-anim-ball-3 {
+	animation: ball-anim 6s linear forwards;
+  }
+  .start-anim-path-4 {
+	animation: path-anim 4.4s linear forwards; /* 1.1 times larger than ball speed */
+  }
+  .start-anim-ball-4 {
+	animation: ball-anim 4s linear forwards;
+  }
+  .start-anim-path-5 {
+	animation: path-anim 2.2s linear forwards; /* 1.1 times larger than ball speed */
+  }
+  .start-anim-ball-5 {
+	animation: ball-anim 2s linear forwards;
+  }
+
+  .stop-animation {
+	animation-play-state: paused !important;
+  }
+
+  @keyframes path-anim {
+	from {
+	  stroke-dashoffset: 690;
+	}
+	to {
+	  stroke-dashoffset: 0;
+	}
+  }
+  
+  @keyframes ball-anim {
+	from {
+	  offset-distance: 0%;
+	}
+	to {
+	  offset-distance: 100%;
+	}
+  }
